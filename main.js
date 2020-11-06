@@ -11,7 +11,6 @@ rafBtn.addEventListener("click", startRaf);
 clearBtn.addEventListener("click", startCLear);
 setIntervalBtn.addEventListener("click", startSetInterval);
 setTimeoutBtn.addEventListener("click", startSetTimeOut);
-let id = null;
 
 function task(scheduler, res, name = "") {
     let i = 0;
@@ -27,7 +26,7 @@ function task(scheduler, res, name = "") {
                 clearInterval(id);
             }
             res.time = (Date.now() - start) / 1000;
-            print.innerHTML += `${scheduler.name + name + " " + id} completed in ${res.time} seconds` + "<br>";
+            print.innerHTML += `${scheduler.name + name} completed in ${res.time} seconds` + "<br>";
         } else {
             if (name !== "setInterval")
                 scheduler(complexTask);
