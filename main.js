@@ -22,15 +22,14 @@ function task(scheduler, res, name = "") {
             i++;
         } while (i % 1e6 != 0);
 
-        if (i === 1e8 || i % 1e8 === 0) {
+        if (i === 1e8) {
             if (name === "setInterval") {
-                print.innerHTML += id + " hello" + "<br>";
                 clearInterval(id);
             }
             res.time = (Date.now() - start) / 1000;
             print.innerHTML += `${scheduler.name + name + " " + id} completed in ${res.time} seconds` + "<br>";
         } else {
-            if (scheduler !== "setInterval")
+            if (name !== "setInterval")
                 scheduler(complexTask);
         }
     }
